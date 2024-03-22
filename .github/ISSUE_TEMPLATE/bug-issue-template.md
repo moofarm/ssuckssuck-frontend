@@ -1,6 +1,6 @@
 ---
 name: Bug Issue Template
-about: Bug Issue Template
+about: "Bug Issue Template \U0001F41B"
 title: "[BUG]"
 labels: ''
 assignees: ''
