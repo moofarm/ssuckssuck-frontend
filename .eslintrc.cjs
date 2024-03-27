@@ -4,7 +4,12 @@ module.exports = {
     node: true,
     es2021: true,
   },
-  extends: ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:storybook/recommended"
+  ],
   overrides: [
     {
       files: [".eslintrc.{js,cjs}"],
