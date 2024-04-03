@@ -1,15 +1,15 @@
 ---
 name: Feature Template
 about: About feature
-title: ''
-labels: ''
-assignees: ''
-
+title: ""
+labels: ""
+assignees: ""
 ---
 
 ## 🌳 Description
 
 ## 🌟 Todo
+
 - [ ] todo
 
 ## 📝 Reference
