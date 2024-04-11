@@ -2,14 +2,15 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-    extend: {},
-    backgroundColor: {
-      "light-green": "#DBEEDB",
-      "green": "#4CAB4A",
-      "dark-green": "#2A4F27",
-      "cheek": "#FF9595",
+    extend: {
+      boxShadow: {
+        shadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25)",
+      },
     },
     colors: {
+      "white": "#fff",
+      "black": "#000",
+      "gray": "#7E7E7E",
       "light-green": "#DBEEDB",
       "green": "#4CAB4A",
       "dark-green": "#2A4F27",
