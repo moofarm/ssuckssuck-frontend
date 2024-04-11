@@ -1,16 +1,14 @@
-import React from "react";
+//import React from "react";
 import PropTypes from "prop-types";
 
 export const Button = ({ primary, size, label, onClick, ...props }) => {
-  const buttonMode = primary
-    ? "bg-green text-white "
-    : "bg-white text-gray border-[0.3px] border-gray ";
+  const buttonMode = primary ? "bg-green text-white " : "bg-white text-gray ";
   const buttonSize =
     size === "small"
-      ? "w-[6rem] h-[3rem] text-base "
+      ? "w-[6rem] h-[3rem] text-sm "
       : size === "medium"
-        ? "w-[12rem] h-[3.5rem] text-lg "
-        : "w-[20rem] h-[4rem] text-xl ";
+        ? "w-[12rem] h-[3.5rem] text-base "
+        : "w-[20rem] h-[4rem] text-lg ";
   return (
     <button
       type="button"
