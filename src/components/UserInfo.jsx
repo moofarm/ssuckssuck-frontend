@@ -1,11 +1,46 @@
 import PropTypes from "prop-types";
 import { ProfileImage } from "./ProfileImage";
+import { useEffect, useState } from "react";
 
 export const UserInfo = ({ nickname }) => {
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const userMenu = document.getElementById("userMenu");
+    const expandIcon = document.getElementById("expand");
+
+    userMenu.className = isUserMenuOpen ? "absolute block" : "absolute hidden";
+    expandIcon.innerText = isUserMenuOpen ? "expand_less" : "expand_more";
+    expandIcon.className = isUserMenuOpen
+      ? "material-symbols-outlined text-dark-green"
+      : "material-symbols-outlined text-black";
+  }, [isUserMenuOpen]);
+
+  function openUserMenu() {
+    setIsUserMenuOpen(!isUserMenuOpen);
+  }
+
   return (
-    <div className="flex items-center gap-1 cursor-pointer">
-      <ProfileImage />
-      <span className="text-bold">{nickname}</span>
+    <div>
+      <div className="relative flex items-center gap-1 cursor-pointer" onClick={openUserMenu}>
+        <ProfileImage />
+        <p>{nickname}</p>
+        <span className="material-symbols-outlined" id="expand">
+          expand_more
+        </span>
+      </div>
+      <div className="absolute hidden" id="userMenu">
+        <div className="bg-white px-7 py-3">
+          <a className="nps-reg text-black no-underline text-center cursor-pointer hover:text-dark-green">
+            마이페이지
+          </a>
+        </div>
+        <div className="bg-white px-7 py-3">
+          <p className="nps-reg text-black no-underline text-center cursor-pointer hover:text-dark-green">
+            로그아웃
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
