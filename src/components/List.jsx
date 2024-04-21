@@ -3,10 +3,9 @@ import EmptyStar from "../assets/empty_star.svg";
 import FullStar from "../assets/full_star.svg";
 import { useState } from "react";
 
-const page = window.location.pathname.split("/")[1];
-
 export const List = ({ title, participantsCount, isBookmarked }) => {
   const [isClickBookmarked, setIsClickBookmarked] = useState(isBookmarked);
+  const page = window.location.pathname.split("/")[1];
 
   const handlerClickStar = () => {
     setIsClickBookmarked(!isClickBookmarked);
@@ -22,7 +21,7 @@ export const List = ({ title, participantsCount, isBookmarked }) => {
       onClick={handlerClickList}
     >
       <div className="flex gap-5 items-center">
-        {page === "" ? (
+        {page === "mymissions" ? (
           <div onClick={handlerClickStar}>
             <svg width="35" height="35" viewBox="0 0 40 40">
               {isClickBookmarked ? <FullStar /> : <EmptyStar />}
@@ -33,7 +32,7 @@ export const List = ({ title, participantsCount, isBookmarked }) => {
         )}
         <p className="nps-bold text-lg">{title}</p>
       </div>
-      {page === "" ? (
+      {page === "mymissions" ? (
         <span
           className="material-symbols-outlined text-2xl hover:text-3xl"
           onClick={handlerClickTrash}
