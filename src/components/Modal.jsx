@@ -73,7 +73,7 @@ const Modal = ({ title, contents, setModal, state, leftLabel, rightLabel, childr
 };
 
 // PropTypes를 사용하여 속성을 검사
-NewModal.propTypes = {
+Modal.propTypes = {
   title: PropTypes.string,
   contents: PropTypes.string,
   leftLabel: PropTypes.string,
@@ -83,7 +83,7 @@ NewModal.propTypes = {
 };
 
 // 기본 값을 지정
-NewModal.defaultProps = {
+Modal.defaultProps = {
   title: "모달 제목",
   contents: "모달 내용",
   leftLabel: "아니오",
