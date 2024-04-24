@@ -2,18 +2,26 @@ import PropTypes from "prop-types";
 import EmptyStar from "../assets/empty_star.svg";
 import FullStar from "../assets/full_star.svg";
 import { useState } from "react";
+import Modal from "./Modal";
 
-export const List = ({ title, participantsCount, isBookmarked }) => {
-  const [isClickBookmarked, setIsClickBookmarked] = useState(isBookmarked);
+export const List = ({ mission }) => {
+  const [isClickBookmarked, setIsClickBookmarked] = useState(mission.isBookmarked);
+  const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
+  const [isOpenMissionModal, setIsOpenMissionModal] = useState(false);
+
   const page = window.location.pathname.split("/")[1];
 
   const handlerClickStar = () => {
     setIsClickBookmarked(!isClickBookmarked);
   };
 
-  const handlerClickList = () => {};
+  const handlerClickList = () => {
+    setIsOpenMissionModal(!isOpenMissionModal);
+  };
 
-  const handlerClickTrash = () => {};
+  const handlerClickTrash = () => {
+    setIsOpenDeleteModal(!isOpenDeleteModal);
+  };
 
   return (
     <div
@@ -30,7 +38,7 @@ export const List = ({ title, participantsCount, isBookmarked }) => {
         ) : (
           <span className="m-[-0.5rem]"></span>
         )}
-        <p className="nps-bold text-lg">{title}</p>
+        <p className="nps-bold text-lg">{mission.title}</p>
       </div>
       {page === "mymissions" ? (
         <span
@@ -42,15 +50,33 @@ export const List = ({ title, participantsCount, isBookmarked }) => {
       ) : (
         <div className="flex items-center gap-1">
           <span className="material-symbols-outlined text-2xl">groups</span>
-          <span className="text-lg">{participantsCount}</span>
+          <span className="text-lg">{mission.participantsCount}</span>
         </div>
+      )}
+      {isOpenMissionModal && (
+        <Modal
+          title={mission.title}
+          contents={mission.description}
+          setModal={setIsOpenMissionModal}
+          state={isOpenMissionModal}
+          leftLabel="아니요"
+          rightLabel="네"
+        />
+      )}
+      {isOpenDeleteModal && (
+        <Modal
+          title="토익만점기원"
+          contents="미션을 중단하시나요?"
+          setModal={setIsOpenDeleteModal}
+          state={isOpenDeleteModal}
+          leftLabel="아니요"
+          rightLabel="네"
+        />
       )}
     </div>
   );
 };
 
 List.propTypes = {
-  title: PropTypes.string,
-  participantsCount: PropTypes.number,
-  isBookmarked: PropTypes.bool,
+  mission: PropTypes.object,
 };
