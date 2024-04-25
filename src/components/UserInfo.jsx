@@ -1,9 +1,14 @@
 import PropTypes from "prop-types";
 import { ProfileImage } from "./ProfileImage";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const UserInfo = ({ nickname }) => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setIsUserMenuOpen(false);
+  }, [window.location.pathname]);
 
   useEffect(() => {
     const userMenu = document.getElementById("userMenu");
@@ -31,9 +36,11 @@ export const UserInfo = ({ nickname }) => {
       </div>
       <div className="absolute hidden" id="userMenu">
         <div className="bg-white px-7 py-3">
-          <a className="nps-reg text-black no-underline text-center cursor-pointer hover:text-dark-green">
-            마이페이지
-          </a>
+          <Link to="/mypage">
+            <a className="nps-reg text-black no-underline text-center cursor-pointer hover:text-dark-green">
+              마이페이지
+            </a>
+          </Link>
         </div>
         <div className="bg-white px-7 py-3">
           <p className="nps-reg text-black no-underline text-center cursor-pointer hover:text-dark-green">
