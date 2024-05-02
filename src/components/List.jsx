@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import EmptyStar from "../assets/empty_star.svg";
 import FullStar from "../assets/full_star.svg";
 import { useState } from "react";
-import Modal from "./Modal";
+import Modal from "./modal/Modal";
+import JoinMissionContent from "./modal/JoinMissionContent";
 
 export const List = ({ mission }) => {
   const [isClickBookmarked, setIsClickBookmarked] = useState(mission.isBookmarked);
@@ -53,15 +54,25 @@ export const List = ({ mission }) => {
           <span className="text-lg">{mission.participantsCount}</span>
         </div>
       )}
-      {isOpenMissionModal && (
+      {isOpenMissionModal && (window.location.pathname === "/mymissions") | mission.isMine ? (
         <Modal
           title={mission.title}
           contents={mission.description}
           setModal={setIsOpenMissionModal}
           state={isOpenMissionModal}
-          leftLabel="아니요"
-          rightLabel="네"
+          leftLabel="취소"
+          rightLabel="입장하기"
         />
+      ) : (
+        <Modal
+          title={mission.title}
+          setModal={setIsOpenMissionModal}
+          state={isOpenMissionModal}
+          leftLabel="취소"
+          rightLabel="가입하기"
+        >
+          <JoinMissionContent />
+        </Modal>
       )}
       {isOpenDeleteModal && (
         <Modal
