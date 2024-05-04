@@ -49,12 +49,12 @@ const Modal = ({ title, contents, setModal, state, leftLabel, rightLabel, childr
                   style={{ width: `${calculateHighlightWidth(title)}rem`, height: "1.3rem" }}
                 />
               </div>
-              <p className="text-xl mt-16">{contents}</p>
+              <p className="text-xl mt-16 mb-6">{contents}</p>
 
               {/* children을 렌더링 */}
               <div>{children}</div>
 
-              <div className="flex justify-center gap-2 ">
+              <div className="flex justify-center gap-2 mt-5">
                 <Button
                   primary={false}
                   size="small"
