@@ -36,10 +36,11 @@ export const UserInfo = ({ nickname }) => {
       </div>
       <div className="absolute hidden" id="userMenu">
         <div className="bg-white px-7 py-3">
-          <Link to="/mypage">
-            <a className="nps-reg text-black no-underline text-center cursor-pointer hover:text-dark-green">
-              마이페이지
-            </a>
+          <Link
+            to="/mypage"
+            className="nps-reg text-black no-underline text-center cursor-pointer hover:text-dark-green"
+          >
+            마이페이지
           </Link>
         </div>
         <div className="bg-white px-7 py-3">
