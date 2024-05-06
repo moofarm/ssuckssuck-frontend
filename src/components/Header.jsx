@@ -1,18 +1,28 @@
 import { useState } from "react";
 import { UserInfo } from "./UserInfo";
-import Modal from "./Modal";
+import Modal from "./modal/Modal";
 import { Link } from "react-router-dom";
+import SearchContainer from "./SearchContainer";
+import MakeRoomContent from "./modal/MakeRoomContent";
 
 export const Header = () => {
-  const [isOpenMakingRoomModal, setIsOpenMakingRoomModal] = useState(false);
+  const [isOpenMakeRoomModal, setIsOpenMakeRoomModal] = useState(false);
+  const [isOpenSearch, setIsOpenSearch] = useState(false);
 
-  const firstMenu = window.location.pathname === "/mymissions" ? "모든미션방" : "나의미션방";
+  const firstMenu =
+    window.location.pathname === "/mymissions" ? "🍀모든미션방보기" : "🌱나의미션방보기";
+
+  const menus = [firstMenu, "🌻방만들기"];
+
   const firstMenuLocation =
     window.location.pathname === "/mymissions" ? "/missions" : "/mymissions";
-  const menus = [firstMenu, "방만들기"];
 
   const handleClickMakingRoom = () => {
-    setIsOpenMakingRoomModal(!isOpenMakingRoomModal);
+    setIsOpenMakeRoomModal(!isOpenMakeRoomModal);
+  };
+
+  const handleClickSearchIcon = () => {
+    setIsOpenSearch(!isOpenSearch);
   };
 
   return (
@@ -25,7 +35,7 @@ export const Header = () => {
         </Link>
         {menus.map((menu, idx) => {
           return idx === 0 ? (
-            <nav key={idx} className="hover:text-dark-green cursor-pointer">
+            <nav key={idx} className="hover:text-dark-green cursor-pointer text-center">
               <Link to={firstMenuLocation}>{menu}</Link>
             </nav>
           ) : (
@@ -40,19 +50,26 @@ export const Header = () => {
         })}
       </div>
       <div className="flex items-center gap-5">
-        <span className="material-symbols-outlined cursor-pointer text-3xl">search</span>
+        <span
+          className="material-symbols-outlined cursor-pointer text-3xl"
+          onClick={handleClickSearchIcon}
+        >
+          search
+        </span>
         <UserInfo />
       </div>
-      {isOpenMakingRoomModal && (
+      {isOpenMakeRoomModal && (
         <Modal
           title="방 만들기"
-          contents="방 만들기 모달"
           leftLabel="취소"
           rightLabel="만들기"
-          setModal={setIsOpenMakingRoomModal}
-          state={isOpenMakingRoomModal}
-        />
+          setModal={setIsOpenMakeRoomModal}
+          state={isOpenMakeRoomModal}
+        >
+          <MakeRoomContent />
+        </Modal>
       )}
+      {isOpenSearch && <SearchContainer isOpen={isOpenSearch} setIsOpen={setIsOpenSearch} />}
     </header>
   );
 };
