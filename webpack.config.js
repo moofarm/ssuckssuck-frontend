@@ -16,7 +16,6 @@ module.exports = {
         test: /\.(js|jsx)$/,
         use: "babel-loader",
         exclude: /node_modules/,
-        // options: { presets: ['@babel/env', '@babel/preset-react'] },
       },
       {
         test: /\.css$/,
@@ -25,6 +24,14 @@ module.exports = {
       {
         test: /\.(svg)$/,
         use: ["@svgr/webpack"],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
       },
     ],
   },
