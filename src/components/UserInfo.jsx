@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 export const UserInfo = ({ nickname }) => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
+  const handleClickLogout = () => {
+    alert("로그아웃 아직 구현 안함!");
+  };
+
   useEffect(() => {
     setIsUserMenuOpen(false);
   }, [window.location.pathname]);
@@ -44,7 +48,10 @@ export const UserInfo = ({ nickname }) => {
           </Link>
         </div>
         <div className="bg-white px-7 py-3">
-          <p className="nps-reg text-black no-underline text-center cursor-pointer hover:text-dark-green">
+          <p
+            className="nps-reg text-black no-underline text-center cursor-pointer hover:text-dark-green"
+            onClick={handleClickLogout}
+          >
             로그아웃
           </p>
         </div>
