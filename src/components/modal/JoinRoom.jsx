@@ -1,6 +1,6 @@
 import Calendar from "./Calendar";
 
-const JoinMissionContent = () => {
+const JoinRoom = () => {
   return (
     <div className="long-modal-content">
       {/* 새로운 컴포넌트 */}
@@ -33,4 +33,4 @@ const JoinMissionContent = () => {
   );
 };
 
-export default JoinMissionContent;
+export default JoinRoom;

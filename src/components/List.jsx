@@ -3,7 +3,7 @@ import EmptyStar from "../assets/empty_star.svg";
 import FullStar from "../assets/full_star.svg";
 import { useState } from "react";
 import Modal from "./modal/Modal";
-import JoinMissionContent from "./modal/JoinMissionContent";
+import JoinRoom from "./modal/JoinRoom";
 
 export const List = ({ mission }) => {
   const [isClickBookmarked, setIsClickBookmarked] = useState(mission.isBookmarked);
@@ -71,7 +71,7 @@ export const List = ({ mission }) => {
           leftLabel="취소"
           rightLabel="가입하기"
         >
-          <JoinMissionContent />
+          <JoinRoom />
         </Modal>
       )}
       {isOpenDeleteModal && (

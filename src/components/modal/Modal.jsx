@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Button } from "../Button";
 
@@ -19,7 +19,10 @@ const Modal = ({ title, contents, setModal, state, leftLabel, rightLabel, childr
     return baseWidth + charWidth * title.length;
   };
 
-  // Modal 컴포넌트
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+  }, []);
+
   return (
     <>
       {state && (
