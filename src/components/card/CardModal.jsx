@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import ExampleJpg from "../assets/example_photo_jpg.jpg";
-import { ProfileImage } from "../components/ProfileImage";
-import { Button } from "./Button.jsx";
+import ExampleJpg from "../../assets/example_photo_jpg.jpg";
+import { ProfileImage } from "../../components/ProfileImage";
+import { Button } from "../Button.jsx";
 
 export const CardModal = ({ nickname, closeModal }) => {
-  // closeModal 함수를 props로 받음
-  const [modalSize, setModalSize] = useState("70vh"); // 초기값으로 화면의 높이의 70%를 설정
+  const [modalSize, setModalSize] = useState("");
 
   useEffect(() => {
     const calculateModalSize = () => {
@@ -15,12 +14,12 @@ export const CardModal = ({ nickname, closeModal }) => {
       setModalSize(`${modalDimension}px`);
     };
 
-    calculateModalSize(); // 초기에 한 번 실행하여 모달의 크기를 설정
+    calculateModalSize();
 
-    window.addEventListener("resize", calculateModalSize); // 화면 크기가 변경될 때마다 모달의 크기를 다시 계산하여 설정
+    window.addEventListener("resize", calculateModalSize);
 
     return () => {
-      window.removeEventListener("resize", calculateModalSize); // cleanup 함수 등록
+      window.removeEventListener("resize", calculateModalSize);
     };
   }, []);
 

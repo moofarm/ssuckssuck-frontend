@@ -1,4 +1,4 @@
-import Plus from "../assets/plus.svg";
+import Plus from "../../assets/plus.svg";
 import { useRef } from "react";
 
 export const PlusCard = () => {
@@ -13,7 +13,7 @@ export const PlusCard = () => {
   };
   return (
     <div
-      className="w-52 h-52 flex g-1 bg-white border-gray shadow-md rounded-lg border items-center justify-center"
+      className="w-60 h-60 flex g-1 bg-white border-gray shadow-md rounded-xl border items-center justify-center "
       onClick={handleButtonClick}
     >
       <input
