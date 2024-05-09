@@ -36,5 +36,6 @@ body,
 
 .page {
   width: 100vw;
-  min-height: 100vh;
+  min-height: 92vh;
+  margin-top: 8vh;
 }
