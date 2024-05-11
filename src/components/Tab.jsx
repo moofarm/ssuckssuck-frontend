@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { categories } from "../utils/utils.js";
+import { Button } from "./Button";
 const Tab = () => {
   const [selectedCategory, setSelectedCategory] = useState("공부");
   const [selectedSubcategory, setSelectedSubcategory] = useState(categories["공부"][0]);
@@ -32,17 +33,12 @@ const Tab = () => {
       <div className="flex flex-wrap w-full bg-light-green justify-center">
         <div className="flex flex-wrap gap-3 my-4 w-auto">
           {categories[selectedCategory].map(subcategory => (
-            <button
-              key={subcategory}
+            <Button
+              backgroundColor={`${selectedSubcategory === subcategory ? "dark-green" : ""}`}
+              size="medium"
+              label={subcategory}
               onClick={() => handleSubcategoryChange(subcategory)}
-              className={`w-44 h-12 py-2 px-4 rounded-2xl shadow-md ${
-                selectedSubcategory === subcategory
-                  ? "bg-dark-green text-white"
-                  : "bg-white text-black"
-              }`}
-            >
-              {subcategory}
-            </button>
+            />
           ))}
         </div>
       </div>
