@@ -16,7 +16,7 @@ const LandingFirstSection = () => {
         className="border-[0.5px] border-gray rounded-md p-3 outline-none w-4/5 pl-3 my-5"
         onChange={e => (user.nickname = e.target.value)}
       />
-      <Button backgroundColor="green" label="확인" onClick={actions.nextStep}></Button>
+      <Button label="확인" onClick={actions.nextStep}></Button>
     </React.Fragment>
   );
 };
