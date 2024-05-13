@@ -36,6 +36,15 @@ const LandingSecondSection = () => {
                     ? "dark-green"
                     : "white"
                 }
+                textColor={
+                  (
+                    user["mainCategory"]
+                      ? user["mainCategory"] === category
+                      : selectedCategory === category
+                  )
+                    ? "white"
+                    : "black"
+                }
                 label={category}
                 style={{ width: "100%" }}
                 onClick={() => {
