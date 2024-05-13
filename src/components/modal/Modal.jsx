@@ -49,13 +49,13 @@ const Modal = ({ title, contents, setModal, state, leftLabel, rightLabel, childr
 
               <div className="flex justify-center gap-2 mt-5">
                 <Button
-                  primary={false}
+                  backgroundColor="white"
                   size="small"
                   label={leftLabel}
                   onClick={handleButtonLeftClick}
                 />
                 <Button
-                  primary={true}
+                  backgroundColor="green"
                   size="small"
                   label={rightLabel}
                   onClick={handleButtonRightClick}

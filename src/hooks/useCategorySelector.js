@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { categories } from "../utils/utils";
+import { categories } from "../utils/datas";
 
 export const useCategorySelector = () => {
   const [selectedCategory, setSelectedCategory] = useState("공부");
