@@ -1,46 +1,43 @@
-import React, { useState } from "react";
-import { categories } from "../utils/utils.js";
+import { categories } from "../utils/datas";
 import { Button } from "./Button";
+import { useCategorySelector } from "../hooks/useCategorySelector";
+
 const Tab = () => {
-  const [selectedCategory, setSelectedCategory] = useState("공부");
-  const [selectedSubcategory, setSelectedSubcategory] = useState(categories["공부"][0]);
-
-  const handleCategoryChange = category => {
-    setSelectedCategory(category);
-    setSelectedSubcategory(categories[category][0]);
-  };
-
-  const handleSubcategoryChange = subcategory => {
-    setSelectedSubcategory(subcategory);
-  };
+  const { selectedCategory, changeCategory, selectedSubCategory, changeSubCategory } =
+    useCategorySelector();
 
   return (
     <div className="flex flex-col tab-container bg-white rounded-md p-4 ">
-      <div className="flex flex-wrap gap-2 w-full">
+      <div className="flex flex-wrap w-full">
         {Object.keys(categories).map(category => (
-          <button
+          <Button
             key={category}
-            onClick={() => handleCategoryChange(category)}
-            className={`flex-1 py-2 px-4 rounded-t-lg text-xl font-nps-bold ${
-              selectedCategory === category ? "bg-light-green text-black" : "bg-white text-gray"
-            }`}
-          >
-            {category}
-          </button>
+            backgroundColor={`${selectedCategory === category ? "light-green" : "white"}`}
+            textColor="black"
+            onClick={() => changeCategory(category)}
+            label={category}
+            style={{ borderRadius: "0.5rem 0.5rem 0 0", width: `${100 / 6}%` }}
+          />
         ))}
       </div>
 
-      <div className="flex flex-wrap w-full bg-light-green justify-center">
-        <div className="flex flex-wrap gap-3 my-4 w-auto">
-          {categories[selectedCategory].map(subcategory => (
-            <Button
-              backgroundColor={`${selectedSubcategory === subcategory ? "dark-green" : ""}`}
-              size="medium"
-              label={subcategory}
-              onClick={() => handleSubcategoryChange(subcategory)}
-            />
-          ))}
-        </div>
+      <div
+        className="flex flex-wrap w-full bg-light-green justify-center"
+        style={{ borderRadius: "0 0 0.5rem 0.5rem" }}
+      >
+        {selectedCategory !== "기타" && (
+          <div className="flex flex-wrap gap-3 my-4 w-auto">
+            {categories[selectedCategory].map(subcategory => (
+              <Button
+                key={subcategory}
+                backgroundColor={`${selectedSubCategory === subcategory ? "dark-green" : "white"}`}
+                textColor={`${selectedSubCategory === subcategory ? "white" : "black"}`}
+                label={subcategory}
+                onClick={() => changeSubCategory(subcategory)}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
