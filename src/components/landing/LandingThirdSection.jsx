@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useCategorySelector } from "../../hooks/useCategorySelector";
-import { categories } from "../../utils/utils";
+
 import { Button } from "../Button";
 import { useUser } from "../../context/LandingProvider";
 import { useNavigate } from "react-router-dom";
+import { categories } from "../../utils/datas";
 
 const LandingThirdSection = () => {
   const { selectedsubcategory, changeSubCategory } = useCategorySelector();

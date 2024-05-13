@@ -1,9 +1,9 @@
-import { categories } from "../../utils/utils";
 import { Button } from "../Button";
 import { useCategorySelector } from "../../hooks/useCategorySelector";
 import React from "react";
 import { useStepActions, useUser } from "../../context/LandingProvider";
 import { useNavigate } from "react-router-dom";
+import { categories } from "../../utils/datas";
 
 const LandingSecondSection = () => {
   const { selectedCategory, changeCategory } = useCategorySelector();

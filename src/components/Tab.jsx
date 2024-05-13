@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { categories } from "../utils/utils.js";
+import { categories } from "../utils/datas";
 const Tab = () => {
   const [selectedCategory, setSelectedCategory] = useState("공부");
   const [selectedSubcategory, setSelectedSubcategory] = useState(categories["공부"][0]);
