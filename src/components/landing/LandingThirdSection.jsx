@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { categories } from "../../utils/datas";
 
 const LandingThirdSection = () => {
-  const { selectedsubcategory, changeSubCategory } = useCategorySelector();
+  const { selectedSubCategory, changeSubCategory } = useCategorySelector();
 
   const user = useUser();
   const navigate = useNavigate();
@@ -24,8 +24,8 @@ const LandingThirdSection = () => {
           return (
             <Button
               key={subCategory}
-              backgroundColor={selectedsubcategory === subCategory ? "dark-green" : "white"}
-              textColor={selectedsubcategory === subCategory ? "white" : "black"}
+              backgroundColor={selectedSubCategory === subCategory ? "dark-green" : "white"}
+              textColor={selectedSubCategory === subCategory ? "white" : "black"}
               label={subCategory}
               style={{ width: "16%" }}
               onClick={() => changeSubCategory(subCategory)}
@@ -36,7 +36,7 @@ const LandingThirdSection = () => {
       <Button
         label="완료"
         onClick={() => {
-          user["subCategory"] = selectedsubcategory;
+          user["subCategory"] = selectedSubCategory;
           navigate("/mymissions");
         }}
       ></Button>
