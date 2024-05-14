@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ExampleJpg from "../../assets/example_photo_jpg.jpg";
+import ExampleJpg from "../../assets/adult_mussuk.svg";
 import { ProfileImage } from "../../components/ProfileImage";
 import { Button } from "../Button.jsx";
 
@@ -32,6 +32,7 @@ export const CardModal = ({ nickname, closeModal }) => {
             <ProfileImage level={2} />
           </div>
           <p className="text-white">{nickname}</p>
+          {/* TODO: 아이콘으로 바꾸기 */}
           <button className="ml-auto mr-5 text-white" onClick={closeModal}>
             X
           </button>
@@ -39,11 +40,11 @@ export const CardModal = ({ nickname, closeModal }) => {
         {/*TODO: //현재 로그인된 계정과 nickname이 일치하면 수정하기 버튼, 일치하지 않으면 신고하기 */}
         <div className="absolute bottom-3 right-3 flex items-center">
           <Button
-            primary={false}
+            backgroundColor="white"
+            textColor="red"
             size="small"
             label="🚨신고하기"
             onClick={() => {
-              console.log("Report Button clicked!");
               {
                 /*TODO: 버튼 클릭시 모달창으로 연결해야 함 */
               }
@@ -52,11 +53,11 @@ export const CardModal = ({ nickname, closeModal }) => {
         </div>
         <div className="absolute bottom-3 right-3 flex items-center">
           <Button
-            primary={false}
+            backgroundColor="white"
+            textColor="black"
             size="small"
             label="✏️수정하기"
             onClick={() => {
-              console.log("Modify Button clicked!");
               {
                 /*TODO: 버튼 클릭시 모달창 연결*/
               }
