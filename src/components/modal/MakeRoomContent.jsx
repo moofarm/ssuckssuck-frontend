@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { categories } from "../../utils/utils";
 import Modal from "./Modal";
+import { categories } from "../../utils/datas";
 
 const MakeRoomContent = () => {
   const [majorCategory, setMajorCategory] = useState("");

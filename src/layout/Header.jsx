@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { UserInfo } from "./UserInfo";
-import Modal from "./modal/Modal";
+import Modal from "../components/modal/Modal";
 import { Link } from "react-router-dom";
-import SearchContainer from "./SearchContainer";
-import MakeRoomContent from "./modal/MakeRoomContent";
+import SearchContainer from "../components/SearchContainer";
+import MakeRoomContent from "../components/modal/MakeRoomContent";
 
 export const Header = () => {
   const [isOpenMakeRoomModal, setIsOpenMakeRoomModal] = useState(false);

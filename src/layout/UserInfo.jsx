@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { ProfileImage } from "./ProfileImage";
+import { ProfileImage } from "../components/ProfileImage";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 

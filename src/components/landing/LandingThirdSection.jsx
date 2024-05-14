@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useCategorySelector } from "../../hooks/useCategorySelector";
-import { categories } from "../../utils/utils";
+
 import { Button } from "../Button";
 import { useUser } from "../../context/LandingProvider";
 import { useNavigate } from "react-router-dom";
+import { categories } from "../../utils/datas";
 
 const LandingThirdSection = () => {
   const { selectedsubcategory, changeSubCategory } = useCategorySelector();
@@ -24,6 +25,7 @@ const LandingThirdSection = () => {
             <Button
               key={subCategory}
               backgroundColor={selectedsubcategory === subCategory ? "dark-green" : "white"}
+              textColor={selectedsubcategory === subCategory ? "white" : "black"}
               label={subCategory}
               style={{ width: "16%" }}
               onClick={() => changeSubCategory(subCategory)}
@@ -32,7 +34,6 @@ const LandingThirdSection = () => {
         })}
       </div>
       <Button
-        backgroundColor="green"
         label="완료"
         onClick={() => {
           user["subCategory"] = selectedsubcategory;
