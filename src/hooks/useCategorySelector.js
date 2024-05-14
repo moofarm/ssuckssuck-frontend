@@ -3,7 +3,7 @@ import { categories } from "../utils/datas";
 
 export const useCategorySelector = () => {
   const [selectedCategory, setSelectedCategory] = useState("공부");
-  const [selectedsubcategory, setSelectedSubcategory] = useState("");
+  const [selectedSubCategory, setSelectedSubcategory] = useState("");
 
   const changeCategory = category => {
     setSelectedCategory(category);
@@ -14,5 +14,5 @@ export const useCategorySelector = () => {
     setSelectedSubcategory(subCategory);
   };
 
-  return { selectedCategory, changeCategory, selectedsubcategory, changeSubCategory };
+  return { selectedCategory, changeCategory, selectedSubCategory, changeSubCategory };
 };
