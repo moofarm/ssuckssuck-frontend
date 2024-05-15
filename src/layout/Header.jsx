@@ -4,10 +4,12 @@ import Modal from "../components/modal/Modal";
 import { Link } from "react-router-dom";
 import SearchContainer from "../components/SearchContainer";
 import MakeRoomContent from "../components/modal/MakeRoomContent";
+import { useSearchContext } from "../context/PageProvider";
 
 export const Header = () => {
   const [isOpenMakeRoomModal, setIsOpenMakeRoomModal] = useState(false);
-  const [isOpenSearch, setIsOpenSearch] = useState(false);
+
+  const { searchActions } = useSearchContext();
 
   const firstMenu =
     window.location.pathname === "/mymissions" ? "🍀모든미션방보기" : "🌱나의미션방보기";
@@ -19,10 +21,6 @@ export const Header = () => {
 
   const handleClickMakingRoom = () => {
     setIsOpenMakeRoomModal(!isOpenMakeRoomModal);
-  };
-
-  const handleClickSearchIcon = () => {
-    setIsOpenSearch(!isOpenSearch);
   };
 
   return (
@@ -52,7 +50,7 @@ export const Header = () => {
       <div className="flex items-center gap-5">
         <span
           className="material-symbols-outlined cursor-pointer text-3xl"
-          onClick={handleClickSearchIcon}
+          onClick={searchActions.open}
         >
           search
         </span>
@@ -69,7 +67,6 @@ export const Header = () => {
           <MakeRoomContent />
         </Modal>
       )}
-      {isOpenSearch && <SearchContainer isOpen={isOpenSearch} setIsOpen={setIsOpenSearch} />}
     </header>
   );
 };

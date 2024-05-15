@@ -1,16 +1,14 @@
-import PropTypes from "prop-types";
+import { useSearchContext } from "../context/PageProvider";
 
-const SearchContainer = ({ isOpen, setIsOpen }) => {
-  const handleClickCloseIcon = () => {
-    setIsOpen(!isOpen);
-  };
+const SearchContainer = () => {
+  const { searchActions } = useSearchContext();
 
   return (
-    <div className="absolute top-0 left-0 w-screen h-screen bg-white">
+    <div className="fixed top-0 left-0 w-full h-full bg-white">
       <div className="w-3/4 m-auto flex flex-col">
         <span
           className="material-symbols-outlined self-end my-5 cursor-pointer"
-          onClick={handleClickCloseIcon}
+          onClick={searchActions.close}
         >
           close
         </span>
@@ -24,15 +22,6 @@ const SearchContainer = ({ isOpen, setIsOpen }) => {
       </div>
     </div>
   );
-};
-
-SearchContainer.propTypes = {
-  isOpen: PropTypes.bool,
-  setIsOpen: PropTypes.any,
-};
-
-SearchContainer.defaultProps = {
-  isOpen: true,
 };
 
 export default SearchContainer;

@@ -1,8 +1,10 @@
+import React from "react";
+
 const MissionPage = () => {
   return (
-    <div className="page">
+    <React.Fragment>
       <h1 className="text-3xl font-bold underline">MissionPage</h1>
-    </div>
+    </React.Fragment>
   );
 };
 

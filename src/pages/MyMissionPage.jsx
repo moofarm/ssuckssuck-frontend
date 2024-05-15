@@ -15,7 +15,7 @@ const MyMissionPage = () => {
   }, []);
 
   return (
-    <div className="page">
+    <React.Fragment>
       {myMissionList.length === 0 ? (
         <div className="absolute top-[15%] left-[25%] bg-light-green rounded-3xl p-20 w-1/2 m-auto shadow-xl flex flex-col items-center gap-3">
           <svg width="130px" viewBox="0 0 150 165">
@@ -35,7 +35,7 @@ const MyMissionPage = () => {
           })}
         </div>
       )}
-    </div>
+    </React.Fragment>
   );
 };
 

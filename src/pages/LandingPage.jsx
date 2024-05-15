@@ -10,7 +10,7 @@ const LandingPage = () => {
   const [isLogin, setLogin] = useState(true);
 
   return (
-    <div className="flex justify-center items-center w-full h-full">
+    <div className="absolute flex justify-center items-center w-full h-full">
       {isLogin ? (
         <LandingProvider>
           <LandingModal />

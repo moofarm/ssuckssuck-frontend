@@ -1,10 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes";
+import { PageProvider } from "./context/PageProvider";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <PageProvider>
+        <AppRoutes />
+      </PageProvider>
     </BrowserRouter>
   );
 };
