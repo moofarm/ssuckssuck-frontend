@@ -1,23 +1,21 @@
-import React from "react";
 import PropTypes from "prop-types";
 
-export const Button = ({ primary, size, label, onClick, ...props }) => {
-  const buttonMode = primary
-    ? "bg-green text-white "
-    : "bg-white text-gray border-[0.3px] border-gray ";
+export const Button = ({ backgroundColor, textColor, size, label, onClick, ...props }) => {
+  const buttonColor = "bg-" + backgroundColor + " text-" + textColor + " ";
   const buttonSize =
     size === "small"
-      ? "w-[6rem] h-[3rem] text-base "
+      ? "w-[6rem] h-[3rem] text-sm "
       : size === "medium"
-        ? "w-[12rem] h-[3.5rem] text-lg "
-        : "w-[20rem] h-[4rem] text-xl ";
+        ? "w-[12rem] h-[3.5rem] text-base "
+        : "w-[20rem] h-[4rem] text-lg ";
+
   return (
     <button
       type="button"
       className={
         "outline-none rounded-lg font-nps-bold " +
-        buttonMode +
         buttonSize +
+        buttonColor +
         "hover:brightness-90 " +
         "active:shadow-shadow "
       }
@@ -30,14 +28,16 @@ export const Button = ({ primary, size, label, onClick, ...props }) => {
 };
 
 Button.propTypes = {
-  primary: PropTypes.bool,
+  backgroundColor: PropTypes.string,
+  textColor: PropTypes.string,
   size: PropTypes.oneOf(["small", "medium", "large"]),
   label: PropTypes.string,
   onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
-  primary: true,
+  backgroundColor: "green",
+  textColor: "white",
   size: "medium",
   label: null,
   onClick: undefined,
