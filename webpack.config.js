@@ -16,11 +16,22 @@ module.exports = {
         test: /\.(js|jsx)$/,
         use: "babel-loader",
         exclude: /node_modules/,
-        // options: { presets: ['@babel/env', '@babel/preset-react'] },
       },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader", "postcss-loader"],
+      },
+      {
+        test: /\.(svg)$/,
+        use: ["@svgr/webpack"],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
       },
     ],
   },
@@ -31,8 +42,11 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: path.join(__dirname, "dist"),
+    static: {
+      directory: path.join(__dirname, "/"),
+    },
+    historyApiFallback: true,
     compress: true,
-    port: 8080,
+    port: 3000,
   },
 };

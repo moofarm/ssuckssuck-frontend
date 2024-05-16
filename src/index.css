@@ -1,6 +1,6 @@
 @font-face {
   font-family: "NPSfontReg";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontRegular.woff2")
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontRegular.woff2")
     format("woff2");
   font-weight: 600;
   font-style: normal;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "NPSfontBold";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2")
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2")
     format("woff2");
   font-weight: 700;
   font-style: normal;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: "NPSfontExtraBold";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontExtraBold.woff2")
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontExtraBold.woff2")
     format("woff2");
   font-weight: 800;
   font-style: normal;
@@ -24,12 +24,19 @@
 
 html,
 body,
-#root {
+root {
   width: 100vw;
-  height: 100vh;
   margin: 0;
   padding: 0;
   /* 기본 폰트, 사이즈 */
   font-family: NPSfontReg;
   font-size: 16px;
+  overflow: auto;
+}
+
+.page {
+  width: 100vw;
+  margin-top: 8vh;
+  min-height: 72vh;
+  overflow: auto;
 }
