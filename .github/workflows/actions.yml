@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout😉
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Run "✏️ Remove node_modules and Install node packages"
         run: npm ci
       - name: Run "⚒️ Project build"
