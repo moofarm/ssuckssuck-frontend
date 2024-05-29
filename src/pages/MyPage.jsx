@@ -1,9 +1,11 @@
+import React from "react";
+
 const MyPage = () => {
   return (
-    <div className="page">
+    <React.Fragment>
       <h1 className="text-3xl font-bold underline">MyPage</h1>
       <a href="/login">login</a>
-    </div>
+    </React.Fragment>
   );
 };
 

@@ -1,13 +1,24 @@
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import React, { useEffect } from "react";
+import { useSearchContext } from "../context/PageProvider";
+import SearchContainer from "../components/SearchContainer";
 
 const PageLayout = ({ page }) => {
+  const { isOpenSearch } = useSearchContext();
+
+  useEffect(() => {
+    if (isOpenSearch) document.getElementsByTagName("html")[0].style.overflow = "hidden";
+    else document.getElementsByTagName("html")[0].style.overflow = "auto";
+  }, [isOpenSearch]);
+
   return (
-    <div>
+    <React.Fragment>
       <Header />
-      {page}
+      <div className="page">{page}</div>
       <Footer />
-    </div>
+      {isOpenSearch && <SearchContainer />}
+    </React.Fragment>
   );
 };
 
