@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, useState } from "react";
-import { user } from "../utils/datas";
+import { user } from "../utils/types";
 
 const StepValueContext = createContext();
 const StepActionsContext = createContext();
@@ -7,7 +7,6 @@ const UserContext = createContext();
 
 export function LandingProvider({ children }) {
   const [currentStep, setCurrentStep] = useState(0);
-  const userValue = user;
 
   const actions = useMemo(
     () => ({
@@ -23,7 +22,7 @@ export function LandingProvider({ children }) {
   );
 
   return (
-    <UserContext.Provider value={userValue}>
+    <UserContext.Provider value={user}>
       <StepActionsContext.Provider value={actions}>
         <StepValueContext.Provider value={currentStep}>{children}</StepValueContext.Provider>
       </StepActionsContext.Provider>

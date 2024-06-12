@@ -10,14 +10,14 @@ const LandingPage = () => {
   const [isLogin, setLogin] = useState(true);
 
   return (
-    <div className="flex justify-center items-center w-full h-full">
+    <div className="fixed inset-0 flex justify-center items-center w-full h-full">
       {isLogin ? (
         <LandingProvider>
           <LandingModal />
         </LandingProvider>
       ) : (
         <div className="font-nps-bold text-2xl w-1/2 m-auto text-center flex flex-col gap-3 justify-center items-center">
-          <h1 className="text-dark-green mb-10">로그인 & 회원가입</h1>
+          <h1 className="text-darkgreen mb-10">로그인 & 회원가입</h1>
           <img src={GoogleLoginButton} alt="구글 로그인 버튼" className="cursor-pointer" />
           <img src={KakaoLoginButton} alt="카카오 로그인 버튼" className="cursor-pointer" />
           <img src={NaverLoginButton} alt="네이버 로그인 버튼" className="cursor-pointer" />
