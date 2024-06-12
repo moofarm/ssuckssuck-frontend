@@ -29,19 +29,19 @@ export const Header = () => {
     <header className="fixed top-0 left-0 w-full h-[8vh] flex justify-between items-center p-8 bg-white">
       <div className="flex gap-6 items-baseline">
         <Link to="/mymissions">
-          <h1 className="text-3xl text-dark-green font-nps-bold cursor-pointer hover:animate-bounce">
+          <h1 className="text-3xl text-darkgreen font-nps-bold cursor-pointer hover:animate-bounce">
             쑥쑥쑥
           </h1>
         </Link>
         {menus.map((menu, idx) => {
           return idx === 0 ? (
-            <nav key={idx} className="hover:text-dark-green cursor-pointer text-center">
+            <nav key={idx} className="hover:text-darkgreen cursor-pointer text-center">
               <Link to={firstMenuLocation}>{menu}</Link>
             </nav>
           ) : (
             <nav
               key={idx}
-              className="hover:text-dark-green cursor-pointer"
+              className="hover:text-darkgreen cursor-pointer"
               onClick={handleClickMakingRoom}
             >
               {menu}

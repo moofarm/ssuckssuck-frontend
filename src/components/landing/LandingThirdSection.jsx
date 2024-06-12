@@ -1,16 +1,18 @@
 import React, { useEffect } from "react";
 import { useCategorySelector } from "../../hooks/useCategorySelector";
-
 import { Button } from "../Button";
+import { json, useNavigate } from "react-router-dom";
+import { categories, mainCategory, subCategory } from "../../utils/types";
+import { useDispatch, useSelector } from "react-redux";
 import { useUser } from "../../context/LandingProvider";
-import { useNavigate } from "react-router-dom";
-import { categories } from "../../utils/datas";
 
 const LandingThirdSection = () => {
   const { selectedSubCategory, changeSubCategory } = useCategorySelector();
-
   const user = useUser();
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state.user.isLoading);
 
   useEffect(() => {
     changeSubCategory(user["subCategory"]);
@@ -24,7 +26,7 @@ const LandingThirdSection = () => {
           return (
             <Button
               key={subCategory}
-              backgroundColor={selectedSubCategory === subCategory ? "dark-green" : "white"}
+              backgroundColor={selectedSubCategory === subCategory ? "darkgreen" : "white"}
               textColor={selectedSubCategory === subCategory ? "white" : "black"}
               label={subCategory}
               style={{ width: "16%" }}
@@ -36,8 +38,13 @@ const LandingThirdSection = () => {
       <Button
         label="완료"
         onClick={() => {
-          user["subCategory"] = selectedSubCategory;
-          navigate("/mymissions");
+          user["mainCategory"] = mainCategory[user["mainCategory"]];
+          user["subCategory"] = subCategory[selectedSubCategory];
+          console.log(user);
+
+          // dispatch(signup(JSON.parse(JSON.stringify(user))));
+          // if (isLoading) console.log("회원가입 진행 중");
+          // if (!isLoading) navigate("/mymissions");
         }}
       ></Button>
     </React.Fragment>

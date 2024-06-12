@@ -1,18 +1,24 @@
+import { useSelector } from "react-redux";
 import { useStepActions, useStepValue } from "../../context/LandingProvider";
 import LandingFirstSection from "./LandingFirstSection";
 import LandingSecondSection from "./LandingSecondSection";
 import LandingThirdSection from "./LandingThirdSection";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../assets/loading.gif";
 
 const LandingModal = () => {
   const currentStep = useStepValue();
   const actions = useStepActions();
   const navigate = useNavigate();
 
+  const isLoading = useSelector(state => state.user.isLoading);
+
   const activeStyle = "bg-green rounded-full w-[20px] h-[20px]";
   const disabledSytle = "bg-white border-[0.5px] border-green rounded-full w-[20px] h-[20px]";
 
-  return (
+  return isLoading ? (
+    <img src={Loading} alt="로딩 중.." />
+  ) : (
     <div className="bg-light-green rounded-3xl p-28 pb-20 w-1/2 m-auto shadow-xl text-center relative">
       {currentStep > 0 && (
         <span
