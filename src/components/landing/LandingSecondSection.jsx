@@ -23,7 +23,6 @@ const LandingSecondSection = () => {
   };
 
   useEffect(() => {
-    console.log(user);
     if (!user.mainCategory) return;
     if (user.mainCategory === "ETC") {
       dispatch(signup(user));

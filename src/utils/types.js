@@ -1,11 +1,11 @@
-export const user = {
-  email: "test@mail.com",
-  name: "test",
-  nickname: "",
-  oauthServerType: "KAKAO",
-  mainCategory: "",
-  subCategory: null,
-};
+// export const user = {
+//   email: "test@mail.com",
+//   name: "test",
+//   nickname: "",
+//   oauthServerType: "KAKAO",
+//   mainCategory: "",
+//   subCategory: null,
+// };
 
 export const categories = {
   공부: ["어학", "수험", "프로그래밍", "기타"],

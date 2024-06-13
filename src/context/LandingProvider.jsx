@@ -1,9 +1,7 @@
 import { createContext, useContext, useMemo, useState } from "react";
-import { user } from "../utils/types";
 
 const StepValueContext = createContext();
 const StepActionsContext = createContext();
-const UserContext = createContext();
 
 export function LandingProvider({ children }) {
   const [currentStep, setCurrentStep] = useState(0);
@@ -13,20 +11,17 @@ export function LandingProvider({ children }) {
       previousStep() {
         setCurrentStep(currentStep => currentStep - 1);
       },
-      nextStep(key, value) {
+      nextStep() {
         setCurrentStep(currentStep => currentStep + 1);
-        if (key) user[key] = value;
       },
     }),
     [],
   );
 
   return (
-    <UserContext.Provider value={user}>
-      <StepActionsContext.Provider value={actions}>
-        <StepValueContext.Provider value={currentStep}>{children}</StepValueContext.Provider>
-      </StepActionsContext.Provider>
-    </UserContext.Provider>
+    <StepActionsContext.Provider value={actions}>
+      <StepValueContext.Provider value={currentStep}>{children}</StepValueContext.Provider>
+    </StepActionsContext.Provider>
   );
 }
 
@@ -45,15 +40,5 @@ export function useStepActions() {
   if (value === undefined) {
     throw new Error("useStepActions should be used within LandingProvider");
   }
-  return value;
-}
-
-export function useUser() {
-  const value = useContext(UserContext);
-
-  if (value === undefined) {
-    throw new Error("useUser should be used within LandingProvider");
-  }
-
   return value;
 }
