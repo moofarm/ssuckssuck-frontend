@@ -4,17 +4,18 @@ import { Button } from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import { List } from "../components/List";
 import { missions } from "../utils/dummy-datas";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getUser } from "../redux/userSlice";
 
 const MyMissionPage = () => {
   const [myMissionList, setMyMissionList] = useState([]);
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const loginedUser = useSelector(state => state.user.loginedUser);
 
   useEffect(() => {
     setMyMissionList(missions);
-    console.log(loginedUser);
+    dispatch(getUser());
   }, []);
 
   return (

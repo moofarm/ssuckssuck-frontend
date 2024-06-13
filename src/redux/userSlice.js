@@ -48,6 +48,12 @@ export const signup = createAsyncThunk("/api/user/signup", async user => {
   });
 });
 
+export const getUser = createAsyncThunk("/api/user", async () => {
+  return await client.get("/api/user").then(res => {
+    return res;
+  });
+});
+
 export const userSlice = createSlice({
   name: "user",
   initialState,
@@ -71,6 +77,7 @@ export const userSlice = createSlice({
     builder.addCase(signup.fulfilled, (state, action) => {
       state.isLoading = false;
       state.loginedUser = action.payload.data.data;
+      location.href = "/mymissions";
     });
     builder.addCase(signup.rejected, (state, action) => {
       alert("회원가입 실패!\nError Message:", action.error.message);
@@ -85,6 +92,14 @@ export const userSlice = createSlice({
         "닉네임을 제대로 설정하지 않으면 회원 가입이 불가합니다!\n Error Message: " +
           action.error.message,
       );
+    });
+
+    builder.addCase(getUser.pending, state => {});
+    builder.addCase(getUser.fulfilled, (state, action) => {
+      // console.log(action.payload);
+    });
+    builder.addCase(getUser.rejected, (state, action) => {
+      // console.log(action.error);
     });
   },
 });
