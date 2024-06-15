@@ -21,7 +21,7 @@ export const UserInfo = ({ nickname }) => {
     userMenu.className = isUserMenuOpen ? "absolute block" : "absolute hidden";
     expandIcon.innerText = isUserMenuOpen ? "expand_less" : "expand_more";
     expandIcon.className = isUserMenuOpen
-      ? "material-symbols-outlined text-dark-green"
+      ? "material-symbols-outlined text-darkgreen"
       : "material-symbols-outlined text-black";
   }, [isUserMenuOpen]);
 
@@ -42,14 +42,14 @@ export const UserInfo = ({ nickname }) => {
         <div className="bg-white px-7 py-3">
           <Link
             to="/mypage"
-            className="nps-reg text-black no-underline text-center cursor-pointer hover:text-dark-green"
+            className="nps-reg text-black no-underline text-center cursor-pointer hover:text-darkgreen"
           >
             마이페이지
           </Link>
         </div>
         <div className="bg-white px-7 py-3">
           <p
-            className="nps-reg text-black no-underline text-center cursor-pointer hover:text-dark-green"
+            className="nps-reg text-black no-underline text-center cursor-pointer hover:text-darkgreen"
             onClick={handleClickLogout}
           >
             로그아웃

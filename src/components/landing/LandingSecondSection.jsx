@@ -1,16 +1,36 @@
 import { Button } from "../Button";
 import { useCategorySelector } from "../../hooks/useCategorySelector";
-import React from "react";
-import { useStepActions, useUser } from "../../context/LandingProvider";
+import React, { useEffect } from "react";
+import { useStepActions } from "../../context/LandingProvider";
 import { useNavigate } from "react-router-dom";
-import { categories } from "../../utils/datas";
+import { categories, mainCategory } from "../../utils/types";
+import { useDispatch, useSelector } from "react-redux";
+import { signup, changeMainCategory } from "../../redux/userSlice";
 
 const LandingSecondSection = () => {
   const { selectedCategory, changeCategory } = useCategorySelector();
   const actions = useStepActions();
-  const user = useUser();
+
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state.user.isLoading);
+  const user = useSelector(state => state.user.user);
 
   let navigate = useNavigate();
+
+  const handleClickCategory = category => {
+    changeCategory(category);
+    dispatch(changeMainCategory(mainCategory[category]));
+  };
+
+  useEffect(() => {
+    if (!user.mainCategory) return;
+    if (user.mainCategory === "ETC") {
+      dispatch(signup(user));
+      if (!isLoading) navigate("/mymissions");
+    } else {
+      actions.nextStep();
+    }
+  }, [user.mainCategory]);
 
   return (
     <React.Fragment>
@@ -18,14 +38,7 @@ const LandingSecondSection = () => {
       <div className="flex flex-wrap gap-4 w-full m-auto justify-between">
         {Object.keys(categories).map(category => {
           return (
-            <div
-              key={category}
-              className="w-[30%]"
-              onClick={() => {
-                actions.nextStep("mainCategory", category);
-                if (category === "기타") navigate("/mymissions");
-              }}
-            >
+            <div key={category} className="w-[30%]">
               <Button
                 backgroundColor={
                   (
@@ -33,7 +46,7 @@ const LandingSecondSection = () => {
                       ? user["mainCategory"] === category
                       : selectedCategory === category
                   )
-                    ? "dark-green"
+                    ? "darkgreen"
                     : "white"
                 }
                 textColor={
@@ -47,9 +60,10 @@ const LandingSecondSection = () => {
                 }
                 label={category}
                 style={{ width: "100%" }}
-                onClick={() => {
-                  changeCategory(category);
-                  user["subCategory"] = categories[category][0];
+                value={category}
+                onClick={e => {
+                  handleClickCategory(e.target.value);
+                  // user["subCategory"] = categories[category][0];
                 }}
               />
             </div>

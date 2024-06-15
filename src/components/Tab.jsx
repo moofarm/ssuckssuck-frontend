@@ -30,7 +30,7 @@ const Tab = () => {
             {categories[selectedCategory].map(subcategory => (
               <Button
                 key={subcategory}
-                backgroundColor={`${selectedSubCategory === subcategory ? "dark-green" : "white"}`}
+                backgroundColor={`${selectedSubCategory === subcategory ? "darkgreen" : "white"}`}
                 textColor={`${selectedSubCategory === subcategory ? "white" : "black"}`}
                 label={subcategory}
                 onClick={() => changeSubCategory(subcategory)}
