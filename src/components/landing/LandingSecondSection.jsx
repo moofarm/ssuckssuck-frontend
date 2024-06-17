@@ -24,6 +24,21 @@ const LandingSecondSection = () => {
     else actions.nextStep();
   };
 
+  const handleClickCategory = category => {
+    changeCategory(category);
+    dispatch(changeMainCategory(mainCategory[category]));
+  };
+
+  useEffect(() => {
+    if (!user.mainCategory) return;
+    if (user.mainCategory === "ETC") {
+      dispatch(signup(user));
+      if (!isLoading) navigate("/mymissions");
+    } else {
+      actions.nextStep();
+    }
+  }, [user.mainCategory]);
+
   return (
     <React.Fragment>
       <h1 className="text-xl my-5">현재 가장 이루고 싶은 목표가 있나요? 1 </h1>

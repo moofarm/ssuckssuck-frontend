@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useStepActions, useStepValue } from "../../context/LandingProvider";
 import LandingFirstSection from "./LandingFirstSection";
 import LandingSecondSection from "./LandingSecondSection";
@@ -12,6 +13,8 @@ const LandingModal = () => {
 
   const dispatch = useDispatch();
   const user = useSelector(state => state.user.user);
+  const isLoading = useSelector(state => state.user.isLoading);
+
   const isLoading = useSelector(state => state.user.isLoading);
 
   const activeStyle = "bg-green rounded-full w-[20px] h-[20px]";

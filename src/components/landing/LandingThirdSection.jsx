@@ -4,6 +4,7 @@ import { categoryMap, subCategory } from "../../utils/types";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSubCategory, signup } from "../../redux/userSlice";
 
+// TODO: 서브 카테고리 선택 후 회원 가입 진행
 const LandingThirdSection = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user.user);

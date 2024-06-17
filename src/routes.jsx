@@ -6,6 +6,7 @@ import GroupPage from "./pages/GroupPage";
 import MyPage from "./pages/MyPage";
 import LandingPage from "./pages/LandingPage";
 import LandingPageLayout from "./layout/LandingPageLayout";
+import KakaoLogin from "./pages/oauth/KakaoLogin";
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
       <Route path="/missions" element={<PageLayout page={<MissionPage />} />} />
       <Route path="/group" element={<PageLayout page={<GroupPage />} />} />
       <Route path="/mypage" element={<PageLayout page={<MyPage />} />} />
+      <Route path="/login/kakao" element={<KakaoLogin />} />
     </Routes>
   );
 };

@@ -1,13 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GoogleLoginButton from "../assets/google_login_button.png";
 import KakaoLoginButton from "../assets/kakao_login_button.png";
 import NaverLoginButton from "../assets/naver_login_button.png";
 import LandingModal from "../components/landing/LandingModal";
 import { LandingProvider } from "../context/LandingProvider";
+import { getCookie } from "../utils/cookie";
 
 const LandingPage = () => {
-  // TODO: 로그인 된 상태인지 쿠키에서 가져오기
-  const [isLogin, setLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+
+  const handleClickGoogleLogin = () => {};
+
+  const handleClickKaKaoLogin = () => {
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_API_KEY}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URL}&response_type=code`;
+  };
+
+  const handleClickNaverLogin = () => {};
+
+  useEffect(() => {
+    setIsLogin(getCookie("access_token"));
+  }, []);
 
   return (
     <div className="fixed inset-0 flex justify-center items-center w-full h-full">

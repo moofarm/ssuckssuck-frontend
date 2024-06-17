@@ -12,6 +12,7 @@ const MyMissionPage = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const loginedUser = useSelector(state => state.user.loginedUser);
 
   useEffect(() => {
     setMyMissionList(missions);
