@@ -30,24 +30,9 @@ const LandingPage = () => {
       ) : (
         <div className="font-nps-bold text-2xl w-1/2 m-auto text-center flex flex-col gap-3 justify-center items-center">
           <h1 className="text-darkgreen mb-10">로그인 & 회원가입</h1>
-          <img
-            src={GoogleLoginButton}
-            alt="구글 로그인 버튼"
-            className="cursor-pointer hover:brightness-95"
-            onClick={handleClickGoogleLogin}
-          />
-          <img
-            src={KakaoLoginButton}
-            alt="카카오 로그인 버튼"
-            className="cursor-pointer hover:brightness-95"
-            onClick={handleClickKaKaoLogin}
-          />
-          <img
-            src={NaverLoginButton}
-            alt="네이버 로그인 버튼"
-            className="cursor-pointer hover:brightness-95"
-            onClick={handleClickNaverLogin}
-          />
+          <img src={GoogleLoginButton} alt="구글 로그인 버튼" className="cursor-pointer" />
+          <img src={KakaoLoginButton} alt="카카오 로그인 버튼" className="cursor-pointer" />
+          <img src={NaverLoginButton} alt="네이버 로그인 버튼" className="cursor-pointer" />
         </div>
       )}
     </div>

@@ -9,12 +9,10 @@ const LandingFirstSection = () => {
   const actions = useStepActions();
 
   const user = useSelector(state => state.user.user);
-  const isNicknameDupl = useSelector(state => state.user.isNicknameDupl);
 
   const handleClickConfirmButton = () => {
     dispatch(checkNicknameDupl(user.nickname));
-    if (isNicknameDupl) alert("중복된 닉네임 입니다!");
-    else actions.nextStep();
+    actions.nextStep();
   };
 
   return (
